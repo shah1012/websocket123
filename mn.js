@@ -8,8 +8,8 @@ const server = express().listen(Port, () => {
 
 const wss = new WebSocket.Server({ server: server });
 
-wss.on("connection", (prt) => {
-  console.log(`Wss server listening to port ${prt}`);
+wss.on("listening", (server) => {
+  console.log(`Wss server listening to port ${server}`);
 });
 
 wss.on("connection", (ws) => {
