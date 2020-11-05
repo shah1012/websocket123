@@ -2,8 +2,8 @@ const WebSocket = require("ws");
 const Port = process.env.PORT || 5500;
 const express = require("express");
 
-const server = express().listen((Port) => {
-  console.log(`Running express server on $${Port}`);
+const server = express().listen(Port, () => {
+  console.log(`Running express server on ${Port}`);
 });
 
 const wss = new WebSocket.Server({ server: server });
