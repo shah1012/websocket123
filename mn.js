@@ -3,6 +3,10 @@ const Port = process.env.PORT || 5500;
 
 const wss = new WebSocket.Server({ port: Port });
 
+wss.on("listening", (PORT) => {
+  console.log(`[Server] listening on port 5500`);
+});
+
 wss.on("connection", (ws) => {
   console.log("New Client Connected");
 
