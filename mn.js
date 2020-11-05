@@ -1,11 +1,12 @@
 const WebSocket = require("ws");
 const Port = process.env.PORT || 5500;
+const express = require("express");
 
-const wss = new WebSocket.Server({ port: Port });
-
-wss.on("listening", (PORT) => {
-  console.log(`[Server] listening on port 5500`);
+const server = express().listen((Port) => {
+  console.log(`Running express server on $${Port}`);
 });
+
+const wss = new WebSocket.Server({ server: server });
 
 wss.on("connection", (ws) => {
   console.log("New Client Connected");
