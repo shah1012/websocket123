@@ -6,7 +6,7 @@ const server = express().listen(Port, () => {
   console.log(`Running express server on ${Port}`);
 });
 
-const wss = new WebSocket.Server({ server: server, port: Port });
+const wss = new WebSocket.Server({ server: server });
 
 wss.on("listening", (prt) => {
   console.log(`Wss server listening to port ${prt}`);
